@@ -1,19 +1,19 @@
-package house.lang.vm;
+package tuna.lang.vm;
 
-public class cons {
+public class Cons implements Thing{
     public Object first;
     public Object rest;
 
     @Override
     public String toString() {
 	String result = "(";
-	cons current = this;
+	Cons current = this;
 	while (true) {
 	    result += current.first.toString();
 
-	    if (current.rest instanceof cons) {
+	    if (current.rest instanceof Cons) {
 		result += " ";
-		current = (cons) current.rest;
+		current = (Cons) current.rest;
 	    }else if(current.rest == null){
 		return result + ")";
 	    }else{
